@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'SevenSegment';
+  src: url('https://fonts.cdnfonts.com/s/18106/Digital7Mono-Yz9J4.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* OUTER FRAME */
+.clock-frame {
+  position: relative;
+  padding: 30px 42px 40px;
+  border-radius: 28px;
+  background: black;
+}
+
+/* THICK GRADIENT BORDER */
+.clock-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 6px; /* BORDER THICKNESS */
+  background: linear-gradient(135deg, #ff86a5, #ffd08a);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  box-shadow: 0 0 40px rgba(255, 170, 200, 0.8);
+}
+
+/* INNER SCREEN */
+.clock-screen {
+  background: black;
+  padding: 26px 38px;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+/* DIGITS */
+#time {
+  font-family: 'SevenSegment', monospace;
+  font-size: 90px;
+  letter-spacing: 6px;
+  color: #ffd6e8;
+  text-shadow: 0 0 18px rgba(255, 200, 230, 0.9);
+}
+
+/* AM PM */
+#ampm {
+  font-family: 'SevenSegment', monospace;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #ffd6e8;
+}
+
+/* BORDER BREAK TEXT */
+.border-label {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 14px;
+  background: black;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 2;
+}
+
